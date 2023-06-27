@@ -12,16 +12,27 @@ public class Bandit : MonoBehaviour {
     private bool                m_grounded = false;
     private bool                m_combatIdle = false;
     private bool                m_isDead = false;
-
+    Collider2D myCollider;
     // Use this for initialization
     void Start () {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
+        myCollider = GetComponent<Collider2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+        GameOver();
+
+        void GameOver()
+    {
+        if(myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            //Debug.Log("ho toccato un nemico");
+            //SceneManager.LoadScene(1);
+        }
+    }
         //Check if character just landed on the ground
         if (!m_grounded && m_groundSensor.State()) {
             m_grounded = true;
