@@ -11,6 +11,15 @@ public class EnemyScript : MonoBehaviour
     private Transform currentPoint;
     public float Speed;
 
+
+    void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("Player"))
+    {
+        Destroy(gameObject);
+    }
+}
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
