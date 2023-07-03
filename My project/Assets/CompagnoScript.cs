@@ -16,6 +16,9 @@ public class CompagnoScript : MonoBehaviour
         currentPoint = PointD.transform;
     }
 
+
+    
+
     void Update()
     {
         Vector2 point = new Vector2(currentPoint.position.x - transform.position.x, currentPoint.position.y - transform.position.y);

@@ -30,7 +30,7 @@ public class Bandit : MonoBehaviour {
         if(myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             //Debug.Log("ho toccato un nemico");
-            //SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(2);
         }
     }
         //Check if character just landed on the ground
