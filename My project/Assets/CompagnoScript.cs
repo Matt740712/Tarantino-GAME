@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CompagnoScript : MonoBehaviour
 {
@@ -9,6 +11,16 @@ public class CompagnoScript : MonoBehaviour
     private Rigidbody2D rb;
     private Transform currentPoint;
     public float Speed;
+
+ void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(2); // Numero della scena desiderata
+        }
+}
+
 
     void Start()
     {
@@ -21,6 +33,7 @@ public class CompagnoScript : MonoBehaviour
 
     void Update()
     {
+        
         Vector2 point = new Vector2(currentPoint.position.x - transform.position.x, currentPoint.position.y - transform.position.y);
 
         if (currentPoint == PointD.transform)
